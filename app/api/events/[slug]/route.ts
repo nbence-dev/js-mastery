@@ -74,15 +74,12 @@ export async function GET(
     console.error("Error fetching event by slug:", error);
 
     // Handle unexpected errors
-    const errorMessage =
-      error instanceof Error ? error.message : "An unexpected error occurred";
-
     return NextResponse.json(
       {
         error: "Internal server error",
-        details: errorMessage,
       },
       { status: 500 },
+    );
     );
   }
 }
